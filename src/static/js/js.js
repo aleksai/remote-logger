@@ -46,20 +46,10 @@ function dateToRelative(date) {
 
 	var fuzzy
 
-	if (delta < 30) {
-	    fuzzy = 'just now'
-	} else if (delta < minute) {
-	    fuzzy = delta + ' seconds ago'
-	} else if (delta < 2 * minute) {
-	    fuzzy = 'a minute ago'
-	} else if (delta < hour) {
-	    fuzzy = Math.floor(delta / minute) + ' minutes ago'
-	} else if (delta <= day) {
+	if (delta <= day) {
 	    fuzzy = date.toLocaleTimeString()
-	} else if (delta < day * 2) {
-	    fuzzy = 'yesterday'
 	} else {
-		fuzzy = date.toDateString()
+		fuzzy = date.toLocaleDateString()
 	}
 
 	return fuzzy
