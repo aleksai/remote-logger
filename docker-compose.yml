@@ -1,0 +1,21 @@
+version: "2"
+services:
+  remote-logger:
+    container_name: remote-logger
+    restart: always
+    build: .
+    ports:
+      - "888:888"
+    volumes:
+      - ./src:/app/src
+    links:
+      - rl-mongo
+  rl-mongo:
+    container_name: rl-mongo
+    image: mongo
+    restart: unless-stopped
+    command: 
+      - "--logpath"
+      - "/var/log/mongodb/mongod.log"
+    ports:
+      - "27017:27017"
