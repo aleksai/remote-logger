@@ -4,6 +4,6 @@ module.exports = {
 
 	url: "http://127.0.0.1",
 
-	db: "mongodb://rl-mongo:27017/rl"
+	db: "mongodb://127.0.0.1:27017/rl"
 
 }

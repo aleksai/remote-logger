@@ -8,6 +8,8 @@ services:
       - "888:888"
     volumes:
       - ./src:/app/src
+    environment:
+      - NODE_ENV=production
     links:
       - rl-mongo
   rl-mongo:
