@@ -30,7 +30,7 @@ function loadNext(reset) {
 		body.innerHTML = ""
 
 		udids = {}
-		sessions = {}
+		sessions = []
 
 		if (next) clearInterval(next)
 		next = setInterval(loadNext, 5000)
