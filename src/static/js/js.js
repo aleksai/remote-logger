@@ -57,9 +57,8 @@ function loadNext(reset) {
 				sessions.push(notCompleteSession)
 			}
 
-			sessions[sessions.indexOf(notCompleteSession)].end = date
-
-			console.log(sessions[sessions.indexOf(notCompleteSession)])
+			if (date.getTime() - sessions[sessions.indexOf(notCompleteSession)].start.getTime() > 1000 * 60) sessions[sessions.indexOf(notCompleteSession)].complete = true
+			else sessions[sessions.indexOf(notCompleteSession)].end = date
 
 			div.classList = "log"
 			div.innerHTML = cEmoji + ' <span class="date color-' + log.level + '" title="' + log.date + '">' + dateToRelative(date) + '</span> <span class="message">' + log.message + '</span>'
@@ -68,6 +67,8 @@ function loadNext(reset) {
 
 			window.scrollTo(0, document.body.scrollHeight)
 		}
+
+		console.log(sessions)
 	}, (error) => {
 		alert(error)
 	})
