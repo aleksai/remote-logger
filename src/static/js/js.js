@@ -57,7 +57,7 @@ function loadNext(reset) {
 				sessions.push(notCompleteSession)
 			}
 
-			if (date.getTime() - sessions[sessions.indexOf(notCompleteSession)].start.getTime() > 1000 * 60) sessions[sessions.indexOf(notCompleteSession)].complete = true
+			if (date.getTime() - sessions[sessions.indexOf(notCompleteSession)].start.getTime() > 1000 * 60 * 10) sessions[sessions.indexOf(notCompleteSession)].complete = true
 			else sessions[sessions.indexOf(notCompleteSession)].end = date
 
 			div.classList = "log"
