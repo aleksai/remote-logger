@@ -4,6 +4,8 @@ module.exports = function(mongoose) {
 	const schema = new mongoose.Schema({
 
 		udid: { type: String },
+		app: { type: String },
+		version: { type: String },
 
 		level: { type: Number },
 		date: { type: String },
