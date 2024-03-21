@@ -120,9 +120,10 @@ function setupUI() {
 
 			nav {
 				position: fixed;
-				margin-top: 2px;
-				width: calc(100vw - 15px);
-				text-align: right;
+				top: 0;
+				right: 0;
+				
+				padding: 10px;
 			}
 
 			.log {
