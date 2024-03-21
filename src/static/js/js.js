@@ -1,5 +1,6 @@
 var body
 var connection
+var select
 var lastLogsAt
 var next
 
@@ -118,6 +119,9 @@ function setupUI() {
 			}
 
 			nav {
+				position: fixed;
+				margin-top: 2px;
+				width: calc(100vw - 15px);
 				text-align: right;
 			}
 
@@ -151,11 +155,13 @@ function setupUI() {
 	const options = ["1-day", "3-day", "7-day", "30-day", "All"]
 	const values = [1, 3, 7, 30, 10000]
 
-	const select = document.createElement("select")
-	
+	select = document.createElement("select")
+
 	select.onchange = function () {
 		setLastLogsInDays(values[this.selectedIndex])
 		loadNext(true)
+
+		localStorage.setItem("selectedRange", this.selectedIndex)
 	}
 
 	for (var i = 0; i < options.length; i++) {
@@ -170,6 +176,7 @@ function setupUI() {
 
 window.onload = function () {
 	setupUI()
-	setLastLogsInDays(1)
-	loadNext(true)
+
+	select.selectedIndex = parseInt(localStorage.getItem("selectedRange") || 0, 10) 
+	select.onchange()
 }
